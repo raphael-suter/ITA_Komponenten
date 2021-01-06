@@ -7,7 +7,10 @@ const Rating = ({ rating, onChange }) => {
 
   for (let count = 1; count <= 5; count++) {
     const star = (
-      <Button variant="link" onClick={() => onChange(count)}>
+      <Button
+        variant="link"
+        onClick={() => onChange(count === rating ? 0 : count)}
+      >
         {count <= rating ? <StarFill /> : <Star />}
       </Button>
     );
@@ -15,7 +18,7 @@ const Rating = ({ rating, onChange }) => {
     stars.push(star);
   }
 
-  return stars.map((item) => item);
+  return stars;
 };
 
 export default Rating;
